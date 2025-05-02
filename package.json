@@ -48,6 +48,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-		"@fontsource/kanit": "^5.2.5"
+		"@fontsource/kanit": "^5.2.5",
+		"mode-watcher": "0.5.1"
 	}
 }
