@@ -3,10 +3,7 @@
 	import Entity from './Entity.svelte';
 	import { generateMonsters } from './monsters.svelte';
 	import MySlider from './MySlider.svelte';
-
-	let health = $state(2500);
-	let armour = $state(2000);
-	let regen = $state(100);
+	import { playerState } from './state.svelte';
 
 	let monsters = generateMonsters();
 </script>
@@ -26,9 +23,9 @@
 			</Card.Content>
 		</Card.Root>
 		<div class="order-2 flex flex-col space-y-4">
-			<MySlider label="eHP" id="health" bind:value={health} min={1000} max={15000} />
-			<MySlider label="Armour" id="armour" bind:value={armour} />
-			<MySlider label="Regeneration" id="regen" bind:value={regen} min={0} max={3000} />
+			<MySlider label="eHP" id="health" bind:value={playerState.health} min={1000} max={15000} />
+			<MySlider label="Armour" id="armour" bind:value={playerState.armour} min={0} max={30000} />
+			<MySlider label="Regeneration" id="regen" bind:value={playerState.regen} min={0} max={3000} />
 		</div>
 	</div>
 </div>
