@@ -37,34 +37,28 @@ export const mondb = [
 	},
 ];
 
-export const generateMonsters = (): MonsterData[] => {
+export const generateMonsters = (
+	trashMonsters = 30,
+	magicMonsters = 12,
+	rareMonsters = 2,
+	dangerousMonsters = 1
+): MonsterData[] => {
 	const monsters: MonsterData[] = [];
-	// add 1 T15 Dangerous Rare Crit
-	monsters.push(mondb[0]);
-	// add 2 T15 Rare Burdened Wretch Slam
-	monsters.push(mondb[1]);
-	monsters.push(mondb[1]);
-	// add 8 T15 Hard hitting Magic
-	monsters.push(mondb[2]);
-	monsters.push(mondb[2]);
-	monsters.push(mondb[2]);
-	monsters.push(mondb[2]);
-	monsters.push(mondb[2]);
-	monsters.push(mondb[2]);
-	monsters.push(mondb[2]);
-	monsters.push(mondb[2]);
-	// add 12 T15 Trash Monster
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
-	monsters.push(mondb[3]);
+	// add T15 Dangerous Rare Crit
+	for (let i = 0; i < dangerousMonsters; i++) {
+		monsters.push(mondb[0]);
+	}
+	// add T15 Rare Burdened Wretch Slam
+	for (let i = 0; i < rareMonsters; i++) {
+		monsters.push(mondb[1]);
+	}
+	// add T15 Hard hitting Magic
+	for (let i = 0; i < magicMonsters; i++) {
+		monsters.push(mondb[2]);
+	}
+	// add T15 Trash Monster
+	for (let i = 0; i < trashMonsters; i++) {
+		monsters.push(mondb[3]);
+	}
 	return monsters;
 };

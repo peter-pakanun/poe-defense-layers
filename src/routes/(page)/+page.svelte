@@ -4,8 +4,15 @@
 	import { generateMonsters } from './monsters.svelte';
 	import MySlider from './MySlider.svelte';
 	import { playerState } from './state.svelte';
+	import { Separator } from '$lib/components/ui/separator/index.js';
+	import { Button } from '$lib/components/ui/button/index.js';
 
-	let monsters = generateMonsters();
+	let monsters = $state(generateMonsters());
+
+	let trash = $state(30);
+	let magic = $state(12);
+	let rare = $state(2);
+	let dangerous = $state(1);
 </script>
 
 <div class="container h-full py-6">
@@ -23,6 +30,7 @@
 			</Card.Content>
 		</Card.Root>
 		<div class="order-2 flex flex-col space-y-4">
+			<h4 class="text-xl">Player Stats</h4>
 			<MySlider label="eHP" id="health" bind:value={playerState.health} min={1000} max={15000} />
 			<MySlider label="Armour" id="armour" bind:value={playerState.armour} min={0} max={30000} />
 			<MySlider
@@ -33,6 +41,17 @@
 				max={3000}
 				step={10}
 			/>
+			<Separator />
+			<h4 class="text-xl">Monsters</h4>
+			<MySlider label="Trash" id="monsters" bind:value={trash} min={0} max={100} step={1} />
+			<MySlider label="Magic" id="magic" bind:value={magic} min={0} max={50} step={1} />
+			<MySlider label="Rare" id="rare" bind:value={rare} min={0} max={10} step={1} />
+			<MySlider label="Dangerous" id="dangerous" bind:value={dangerous} min={0} max={5} step={1} />
+			<Button
+				onclick={() => {
+					monsters = generateMonsters(trash, magic, rare, dangerous);
+				}}>Generate</Button
+			>
 		</div>
 	</div>
 </div>
