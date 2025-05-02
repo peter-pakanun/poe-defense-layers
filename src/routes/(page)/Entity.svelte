@@ -11,6 +11,7 @@
 
 		name = 'Enemy',
 		physicalDamage = 841,
+		aspd = 1,
 		useSlam = false,
 		isMagic = false,
 		isRare = false,
@@ -34,7 +35,8 @@
 	let oneShot = $derived(physicalDamageAfterDR > playerState.health);
 
 	// assuming monster have 1.0 aspd
-	let dps = $derived(physicalDamageAfterDR / 1);
+	// we also move a lot so on average we do take half of the hits
+	let dps = $derived(physicalDamageAfterDR / aspd / 2);
 	let cantOutRegen = $derived(playerState.regen < dps);
 </script>
 
