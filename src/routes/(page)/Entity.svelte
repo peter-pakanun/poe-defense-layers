@@ -6,6 +6,8 @@
 		xPos = 0,
 		yPos = 0,
 
+		isPlayer = false,
+
 		name = 'Enemy',
 		physicalDamage = 841,
 	}: {
@@ -13,13 +15,16 @@
 		xPos?: number;
 		yPos?: number;
 
+		isPlayer?: boolean;
+
 		name?: string;
 		physicalDamage?: number;
 	} = $props();
 </script>
 
 <div
-	class="z relative rounded-full bg-red-500"
+	class="z relative rounded-full"
+	class:bg-green-500={isPlayer}
 	style="width: {size}px; height: {size}px; left: {xPos}%; top: {yPos}%; transform: translate(-50%, -50%);"
 >
 	<Tooltip.Provider>
@@ -29,7 +34,9 @@
 			</Tooltip.Trigger>
 			<Tooltip.Content>
 				<p>{name}</p>
-				<p>Physical Damage: {physicalDamage}</p>
+				{#if !isPlayer}
+					<p>Physical Damage: {physicalDamage}</p>
+				{/if}
 			</Tooltip.Content>
 		</Tooltip.Root>
 	</Tooltip.Provider>

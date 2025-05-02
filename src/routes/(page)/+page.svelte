@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index.js';
-	import Enemy from './Enemy.svelte';
+	import Entity from './Entity.svelte';
 	import MySlider from './MySlider.svelte';
 
 	let health = $state(2500);
@@ -13,7 +13,8 @@
 		<Card.Root class="order-1 aspect-video">
 			<Card.Content class="h-full">
 				<div class="h-full bg-black">
-					<Enemy size={10} xPos={20} yPos={20} />
+					<Entity size={10} xPos={20} yPos={20} />
+					<Entity size={20} xPos={50} yPos={50} isPlayer name="Player Character" />
 				</div>
 			</Card.Content>
 		</Card.Root>
