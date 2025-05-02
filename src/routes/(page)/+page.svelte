@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index.js';
+	import ArmourSlider from './ArmourSlider.svelte';
 </script>
 
 <div class="container h-full py-6">
@@ -16,6 +17,8 @@
 				<p>Card Footer</p>
 			</Card.Footer>
 		</Card.Root>
-		<div class="order-2 flex flex-col space-y-4">test</div>
+		<div class="order-2 flex flex-col space-y-4">
+			<ArmourSlider />
+		</div>
 	</div>
 </div>
