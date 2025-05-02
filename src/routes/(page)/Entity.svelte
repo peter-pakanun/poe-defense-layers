@@ -10,6 +10,7 @@
 
 		name = 'Enemy',
 		physicalDamage = 841,
+		useSlam = false,
 	}: {
 		size?: number;
 		xPos?: number;
@@ -19,12 +20,18 @@
 
 		name?: string;
 		physicalDamage?: number;
+		useSlam?: boolean;
 	} = $props();
+
+	let oneShot = true;
 </script>
 
 <div
-	class="z relative rounded-full"
+	class="absolute rounded-full"
 	class:bg-green-500={isPlayer}
+	class:bg-red-500={oneShot}
+	class:z-10={!isPlayer}
+	class:z-20={isPlayer}
 	style="width: {size}px; height: {size}px; left: {xPos}%; top: {yPos}%; transform: translate(-50%, -50%);"
 >
 	<Tooltip.Provider>
