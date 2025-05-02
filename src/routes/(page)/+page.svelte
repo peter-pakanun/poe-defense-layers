@@ -12,7 +12,7 @@
 	<div class="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px]">
 		<Card.Root class="order-1 aspect-video">
 			<Card.Content class="h-full">
-				<div class="h-full bg-gray-500">
+				<div class="h-full bg-black">
 					<Enemy size={10} xPos={20} yPos={20} />
 				</div>
 			</Card.Content>
