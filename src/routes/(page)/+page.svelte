@@ -33,7 +33,6 @@
 		<div class="order-2 flex flex-col space-y-4">
 			<h4 class="text-xl">Player Stats</h4>
 			<MySlider label="eHP" id="health" bind:value={playerState.health} min={1000} max={15000} />
-			<MySlider label="Armour" id="armour" bind:value={playerState.armour} min={0} max={30000} />
 			<MySlider
 				label="Regeneration"
 				id="regen"
@@ -42,6 +41,16 @@
 				max={3000}
 				step={10}
 			/>
+			<MySlider label="Armour" id="armour" bind:value={playerState.armour} min={0} max={30000} />
+			<MySlider
+				label="Blocks"
+				id="blocks"
+				bind:value={playerState.blocks}
+				min={0}
+				max={90}
+				step={1}
+			/>
+			<MySlider label="Evade" id="evade" bind:value={playerState.evade} min={0} max={90} step={1} />
 			<Separator />
 			<h4 class="text-xl">Monsters</h4>
 			<MySlider label="Trash" id="monsters" bind:value={trash} min={0} max={100} step={1} />

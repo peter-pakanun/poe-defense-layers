@@ -24,6 +24,7 @@
 
 		name?: string;
 		physicalDamage?: number;
+		aspd?: number;
 		useSlam?: boolean;
 		isMagic?: boolean;
 		isRare?: boolean;
@@ -37,7 +38,11 @@
 	// assuming monster have 1.0 aspd
 	// we also move a lot so on average we do take half of the hits
 	let dps = $derived(physicalDamageAfterDR / aspd / 2);
-	let cantOutRegen = $derived(playerState.regen < dps);
+	let dpsAfterBlocks = $derived((dps * (100 - playerState.blocks)) / 100);
+	let dpsAfterEvade = $derived((dpsAfterBlocks * (100 - playerState.evade)) / 100);
+	let cantOutRegen = $derived(
+		useSlam ? dps > playerState.regen : dpsAfterEvade > playerState.regen
+	);
 </script>
 
 <div
