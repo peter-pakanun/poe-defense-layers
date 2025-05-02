@@ -3,8 +3,9 @@
 	import Enemy from './Enemy.svelte';
 	import MySlider from './MySlider.svelte';
 
-	let armour = $state(3000);
-	let regen = $state(200);
+	let health = $state(2500);
+	let armour = $state(2000);
+	let regen = $state(100);
 </script>
 
 <div class="container h-full py-6">
@@ -17,6 +18,7 @@
 			</Card.Content>
 		</Card.Root>
 		<div class="order-2 flex flex-col space-y-4">
+			<MySlider label="eHP" id="health" bind:value={health} min={1000} max={15000} />
 			<MySlider label="Armour" id="armour" bind:value={armour} />
 			<MySlider label="Regeneration" id="regen" bind:value={regen} min={0} max={3000} />
 		</div>
