@@ -1,6 +1,8 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index.js';
-	import ArmourSlider from './ArmourSlider.svelte';
+	import MySlider from './MySlider.svelte';
+
+	let armour = $state(2000);
 </script>
 
 <div class="container h-full py-6">
@@ -11,14 +13,14 @@
 				<Card.Description>Card Description</Card.Description>
 			</Card.Header>
 			<Card.Content>
-				<p>Card Content</p>
+				<p>{armour}</p>
 			</Card.Content>
 			<Card.Footer>
 				<p>Card Footer</p>
 			</Card.Footer>
 		</Card.Root>
 		<div class="order-2 flex flex-col space-y-4">
-			<ArmourSlider />
+			<MySlider label="Armour" id="armour" bind:value={armour} />
 		</div>
 	</div>
 </div>

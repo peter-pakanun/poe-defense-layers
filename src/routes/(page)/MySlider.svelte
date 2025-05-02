@@ -5,13 +5,17 @@
 
 	let {
 		value = $bindable(2000),
+		label = 'Label',
+		id = 'id',
 	}: {
 		value?: number;
+		label?: string;
+		id?: string;
 	} = $props();
 </script>
 
 <div class="grid w-full max-w-sm items-center gap-2">
-	<Label for="armour">Armour</Label>
-	<Input id="armour" type="number" bind:value min={0} max={30000} step={100} />
+	<Label for={id}>{label}</Label>
+	<Input {id} type="number" bind:value min={0} max={30000} step={100} />
 	<Slider type="single" bind:value min={0} max={30000} step={100} />
 </div>
