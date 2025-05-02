@@ -14,10 +14,10 @@
 			<Card.Content class="h-full bg-black p-12">
 				<div class="relative h-full bg-black">
 					<Entity size={20} xPos={50} yPos={50} isPlayer name="Player Character" />
-					{#each monsters as { name, physicalDamage, size, useSlam }}
+					{#each monsters as { name, physicalDamage, size, useSlam, isMagic, isRare }}
 						{@const xPos = Math.random() * 100}
 						{@const yPos = Math.random() * 100}
-						<Entity {name} {physicalDamage} {size} {useSlam} {xPos} {yPos} />
+						<Entity {name} {physicalDamage} {size} {useSlam} {isMagic} {isRare} {xPos} {yPos} />
 					{/each}
 				</div>
 			</Card.Content>

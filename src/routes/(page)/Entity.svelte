@@ -12,6 +12,8 @@
 		name = 'Enemy',
 		physicalDamage = 841,
 		useSlam = false,
+		isMagic = false,
+		isRare = false,
 	}: {
 		size?: number;
 		xPos?: number;
@@ -22,6 +24,8 @@
 		name?: string;
 		physicalDamage?: number;
 		useSlam?: boolean;
+		isMagic?: boolean;
+		isRare?: boolean;
 	} = $props();
 
 	let damageReduction = $derived(playerState.armour / (playerState.armour + 10 * physicalDamage));
@@ -35,13 +39,17 @@
 </script>
 
 <div
-	class="absolute rounded-full ring-2"
+	class="absolute rounded-full"
 	class:bg-sky-500={isPlayer}
 	class:bg-red-500={!isPlayer && oneShot}
 	class:bg-orange-500={!isPlayer && !oneShot && cantOutRegen}
 	class:bg-gray-500={!isPlayer && !oneShot && !cantOutRegen}
+	class:opacity-50={!isPlayer && !oneShot && !cantOutRegen}
 	class:z-10={!isPlayer}
 	class:z-20={isPlayer}
+	class:ring-2={isMagic || isRare}
+	class:ring-blue-500={isMagic}
+	class:ring-yellow-500={isRare}
 	style="width: {size}px; height: {size}px; left: {xPos}%; top: {yPos}%; transform: translate(-50%, -50%);"
 >
 	<Tooltip.Provider>

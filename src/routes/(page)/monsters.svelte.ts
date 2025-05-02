@@ -3,6 +3,8 @@ export interface MonsterData {
 	physicalDamage: number;
 	size: number;
 	useSlam: boolean;
+	isMagic?: boolean;
+	isRare?: boolean;
 }
 
 export const mondb = [
@@ -11,18 +13,21 @@ export const mondb = [
 		physicalDamage: 8888,
 		size: 50,
 		useSlam: true,
+		isRare: true,
 	},
 	{
 		name: 'T15 Rare Burdened Wretch Slam',
 		physicalDamage: 4444,
 		size: 50,
 		useSlam: true,
+		isRare: true,
 	},
 	{
 		name: 'T15 Hard hitting Magic',
 		physicalDamage: 1200,
 		size: 20,
 		useSlam: false,
+		isMagic: true,
 	},
 	{
 		name: 'T15 Trash Monster',
