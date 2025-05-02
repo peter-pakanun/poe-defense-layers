@@ -25,7 +25,14 @@
 		<div class="order-2 flex flex-col space-y-4">
 			<MySlider label="eHP" id="health" bind:value={playerState.health} min={1000} max={15000} />
 			<MySlider label="Armour" id="armour" bind:value={playerState.armour} min={0} max={30000} />
-			<MySlider label="Regeneration" id="regen" bind:value={playerState.regen} min={0} max={3000} />
+			<MySlider
+				label="Regeneration"
+				id="regen"
+				bind:value={playerState.regen}
+				min={0}
+				max={3000}
+				step={10}
+			/>
 		</div>
 	</div>
 </div>

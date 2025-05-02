@@ -28,13 +28,18 @@
 	let effectiveDR = $derived(Math.min(0.9, damageReduction));
 	let physicalDamageAfterDR = $derived(physicalDamage * (1 - effectiveDR));
 	let oneShot = $derived(physicalDamageAfterDR > playerState.health);
+
+	// assuming monster have 1.0 aspd
+	let dps = $derived(physicalDamageAfterDR / 1);
+	let cantOutRegen = $derived(playerState.regen < dps);
 </script>
 
 <div
-	class="absolute rounded-full"
-	class:bg-green-500={isPlayer}
-	class:bg-red-500={oneShot}
-	class:bg-gray-500={!oneShot}
+	class="absolute rounded-full ring-2"
+	class:bg-sky-500={isPlayer}
+	class:bg-red-500={!isPlayer && oneShot}
+	class:bg-orange-500={!isPlayer && !oneShot && cantOutRegen}
+	class:bg-gray-500={!isPlayer && !oneShot && !cantOutRegen}
 	class:z-10={!isPlayer}
 	class:z-20={isPlayer}
 	style="width: {size}px; height: {size}px; left: {xPos}%; top: {yPos}%; transform: translate(-50%, -50%);"
