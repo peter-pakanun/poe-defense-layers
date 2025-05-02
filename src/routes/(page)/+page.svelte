@@ -6,6 +6,7 @@
 	import { playerState } from './state.svelte';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
+	import { tick } from 'svelte';
 
 	let monsters = $state(generateMonsters());
 
@@ -48,7 +49,9 @@
 			<MySlider label="Rare" id="rare" bind:value={rare} min={0} max={10} step={1} />
 			<MySlider label="Dangerous" id="dangerous" bind:value={dangerous} min={0} max={5} step={1} />
 			<Button
-				onclick={() => {
+				onclick={async () => {
+					monsters = [];
+					await tick();
 					monsters = generateMonsters(trash, magic, rare, dangerous);
 				}}>Generate</Button
 			>
