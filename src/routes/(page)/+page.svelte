@@ -17,7 +17,7 @@
 </script>
 
 <div class="container h-full py-6">
-	<div class="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px]">
+	<div class="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px_200px]">
 		<Card.Root class="order-1 aspect-video">
 			<Card.Content class="h-full bg-black p-12">
 				<div class="relative h-full bg-black">
@@ -34,7 +34,7 @@
 			<h4 class="text-xl">Player Stats</h4>
 			<MySlider label="eHP" id="health" bind:value={playerState.health} min={1000} max={15000} />
 			<MySlider
-				label="Regeneration"
+				label="Recovery"
 				id="regen"
 				bind:value={playerState.regen}
 				min={0}
@@ -51,7 +51,8 @@
 				step={1}
 			/>
 			<MySlider label="Evade" id="evade" bind:value={playerState.evade} min={0} max={90} step={1} />
-			<Separator />
+		</div>
+		<div class="order-2 flex flex-col space-y-4">
 			<h4 class="text-xl">Monsters</h4>
 			<MySlider label="Trash" id="monsters" bind:value={trash} min={0} max={100} step={1} />
 			<MySlider label="Magic" id="magic" bind:value={magic} min={0} max={50} step={1} />
