@@ -13,7 +13,7 @@
 		<Card.Root class="order-1 aspect-video">
 			<Card.Content class="h-full">
 				<div class="h-full bg-gray-500">
-					<Enemy size={10} xPos={0} yPos={0} />
+					<Enemy size={10} xPos={20} yPos={20} />
 				</div>
 			</Card.Content>
 		</Card.Root>
