@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index.js';
+	import Enemy from './Enemy.svelte';
 	import MySlider from './MySlider.svelte';
 
 	let armour = $state(3000);
@@ -9,9 +10,9 @@
 <div class="container h-full py-6">
 	<div class="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px]">
 		<Card.Root class="order-1 aspect-video">
-			<Card.Content>
-				<div class="relative h-full w-full">
-					<div class="absolute left-[10%] top-0 bg-red-500">A</div>
+			<Card.Content class="h-full">
+				<div class="h-full bg-gray-500">
+					<Enemy size={10} xPos={0} yPos={0} />
 				</div>
 			</Card.Content>
 		</Card.Root>
